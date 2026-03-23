@@ -39,9 +39,11 @@ This project includes:
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+
 
 ```bash
+### 1. Clone the Repository
+
 git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
 cd closet_mlops
 
