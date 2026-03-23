@@ -19,30 +19,7 @@ This project includes:
 
 ---
 
-## Project Structure
-
-closet_mlops/
-│
-├── api/
-│ └── main.py # FastAPI app for inference
-│
-├── src/
-│ ├── dataloader.py # Data loading & preprocessing
-│ ├── model_loader.py # MLflow model loading logic
-│ ├── train_baseline.py # Baseline CNN training
-│ ├── train_transfer.py # Transfer learning (ResNet18)
-│ └── init.py
-│
-├── requirements.txt
-├── Dockerfile
-└── .gitignore
-
----
-
-
----
-
-## 🧪 Model Approach
+## Model Approach
 
 ### Baseline Model
 - Simple fully connected neural network
@@ -53,14 +30,14 @@ closet_mlops/
 - Freezes feature extractor
 - Trains only final classification layer
 
-💡 This improves:
+ This improves:
 - Generalization
 - Feature extraction
 - Performance on small datasets
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -132,36 +109,31 @@ docker run -p 8000:8000 fashion-mlops-api
 Then open:
 
 http://localhost:8000/docs
-
+```
 
  MLOps Workflow
-Train model (train_transfer.py)
-Log experiments using MLflow
-Register model in MLflow registry
-Promote model to Production
-API dynamically loads production model
-Serve predictions via FastAPI
+   - Train model (train_transfer.py)
+   - Log experiments using MLflow
+   - Register model in MLflow registry
+   - Promote model to Production
+   - API dynamically loads production model
+   - Serve predictions via FastAPI
 
 
  Key Skills Earned
-Deep Learning (PyTorch)
-Transfer Learning (ResNet18)
-Experiment Tracking (MLflow)
-Model Versioning & Registry
-API Development (FastAPI)
-Docker Containerization
-End-to-End ML Pipeline Design
+   - Deep Learning (PyTorch)
+   - Transfer Learning (ResNet18)
+   - Experiment Tracking (MLflow)
+   - Model Versioning & Registry
+   - API Development (FastAPI)
+   - Docker Containerization
+   - End-to-End ML Pipeline Design
 
 
  Notes
-Ensure model is in Production stage before running API
-MLflow uses local SQLite by default
-First training run may take longer due to model download
- Future Improvements
-Add CI/CD pipeline
-Deploy to cloud (AWS / Azure)
-Add monitoring & logging
-Implement model drift detection
+    Ensure model is in Production stage before running API
+    MLflow uses local SQLite by default
+    First training run may take longer due to model download
 
 
  Author
