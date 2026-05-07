@@ -1,17 +1,21 @@
-FROM python:3.9-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
-# Install dependencies
+ENV PYTHONPATH=/app
+ENV MLFLOW_TRACKING_URI=sqlite:////app/mlflow.db
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
 COPY src ./src
 COPY api ./api
 
-# Copy trained model
-COPY model.pt /app/model.pt
+COPY mlflow.db ./mlflow.db
+COPY mlruns ./mlruns
+
+# Make the Windows MLflow artifact path work inside Linux Docker
+RUN mkdir -p "/C:/closet_mlops" && ln -s /app/mlruns "/C:/closet_mlops/mlruns"
 
 EXPOSE 8000
 
